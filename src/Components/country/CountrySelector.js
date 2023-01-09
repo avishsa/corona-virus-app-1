@@ -19,7 +19,7 @@ export default function CountrySelector() {
         if(status===stateStatus.init)     
         dispatch(countryActions.getAll());        
     }, [dispatch, status]);
-    if(status!==stateStatus.valid) return <div></div>
+    if(status!==stateStatus.valid&& countries?.items?.length===0) return <div></div>
 
     
 
