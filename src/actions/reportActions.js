@@ -6,7 +6,7 @@ export const reportActions = {
 };
 function searchReports(criteria) {
     return dispatch => {
-        dispatch(request());
+        dispatch(request(criteria));
         reportService._searchReports(criteria)
             .then(
                 res => {                    
@@ -18,7 +18,7 @@ function searchReports(criteria) {
                 }
             );
     };
-    function request() { return { type: reportConstants.SEARCH_REPORTS_REQUEST } }
+    function request(criteria) { return { type: reportConstants.SEARCH_REPORTS_REQUEST, payload:criteria } }
     function success(reports) { return { type: reportConstants.SEARCH_REPORTS_SUCCESS, payload: {reports} } }
     function failure(error) { return { type: reportConstants.SEARCH_REPORTS_FAILURE, error } }
 }
