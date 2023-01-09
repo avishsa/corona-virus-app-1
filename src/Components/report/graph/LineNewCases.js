@@ -54,7 +54,7 @@ export const options = {
 
 
 export function LineNewCases({items,query} ) {  
-  c
+  
   
 const data = {
   
