@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { countryActions } from "../actions/countryActions";
 import { stateStatus } from '../constants';
+import CountryItem from './country/CountryItem';
 
 
 export default function CountryGraph() {   
@@ -22,8 +23,14 @@ export default function CountryGraph() {
     
 
 
-    return (<div>       
-
-    </div>);
+    return (<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     Select country
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      {countries.items.map(i=>{
+      return <CountryItem {...i}/>})}
+    </div>
+  </div>);
 
 }
