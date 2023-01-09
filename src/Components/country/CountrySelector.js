@@ -15,7 +15,7 @@ export default function CountrySelector() {
     const dispatch = useDispatch();
     
     useEffect(() => {   
-      console.log("cscs");
+      
         if(status===stateStatus.init)     
         dispatch(countryActions.getAll());        
     }, [dispatch, status]);

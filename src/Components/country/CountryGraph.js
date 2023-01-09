@@ -84,7 +84,7 @@ export default function CountryGraph() {
         
     ]
     };
-    console.log(countries.topten,countries.topten.map(el=>{return {"x":el.country,"y":el.total_cases}}));
+    
 
 
     return (<div className="">    

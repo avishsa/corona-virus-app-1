@@ -14,12 +14,12 @@ export default function ReportGraph() {
         return state.reports }
         );    
     const status = useSelector(state => { return state.reports.status });
-    
-    return status===stateStatus.valid ?(<div >
+    if(status!==stateStatus.valid) return <div></div>;
+    return(<div >
         <LineNewCases {...reports} />
     
      
     
-  </div>):<div></div>;
+  </div>);
 
 }
