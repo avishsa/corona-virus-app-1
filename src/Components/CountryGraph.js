@@ -23,13 +23,13 @@ export default function CountryGraph() {
     
 
 
-    return (<div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    return (<div className="dropdown">
+    <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
      Select country
     </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
       {countries.items.map(i=>{
-      return <CountryItem {...i}/>})}
+      return <CountryItem key={i.id}{...i}/>})}
     </div>
   </div>);
 

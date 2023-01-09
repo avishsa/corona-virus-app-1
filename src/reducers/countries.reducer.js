@@ -23,7 +23,8 @@ export function countries(state = { items: [], status: stateStatus.init }, actio
         }
         case countryConstants.GETALL_FAILURE:
             return {
-                error: action.error
+               ...state,
+               status:stateStatus.invalid
             };
        
                default: return state;
