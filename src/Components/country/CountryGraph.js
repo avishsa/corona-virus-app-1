@@ -23,7 +23,7 @@ ChartJS.register(
   );
 
 export const options = {
-    indexAxis: 'y',
+    indexAxis: 'x',
     elements: {
       bar: {
         borderWidth: 2,
@@ -36,37 +36,53 @@ export const options = {
       },
       title: {
         display: true,
-        text: 'Chart.js Horizontal Bar Chart',
+        text: 'Top 10',
       },
     },
+    scales: {
+        x: {
+            stacked: true
+        },
+        y: {
+            stacked: true
+        }
+    }
   };
 export default function CountryGraph() {   
     
-    const countries = useSelector(state => { 
-        
-        return state.countries }
-        );    
+    const countries = useSelector(state => { return state.countries } );    
     const status = useSelector(state => { return state.countries.statusTop10 });
     const dispatch = useDispatch();
-    console.log(stateStatus);
+    
     useEffect(() => {   
         if(status===stateStatus.init)     
         dispatch(countryActions.getTopTen());        
     }, [dispatch, status]);
     
-    if(countries.statusTop10!==stateStatus.valid)
-    {
-        return <div></div>;
-    }
+    if(countries.statusTop10!==stateStatus.valid)   {     return <div></div>;  }
     const data = { 
-        labels:  countries.topten.map(el=>el.total_cases),
+        labels:  countries.topten.map(el=>el.country),
         datasets: [
         {
           label: 'total cases',
-          data:  countries.topten.map(el=>{return {"x":el.country,"y":el.total_cases}}),
-          borderColor: 'rgb(255, 99, 132)',
+          barPercentage: 0.5,
+          barThickness: 50,
+         
+          data:  countries.topten.map(el=>el.total_cases),
+          
           backgroundColor: 'rgba(255, 99, 132, 0.5)',
-        },]
+        },
+        {
+            label: 'total death',
+            barPercentage: 0.5,
+            barThickness: 50,
+           
+            data:  countries.topten.map(el=>el.total_deaths),
+            
+            backgroundColor: 'rgba(53, 162, 235, 0.5)'
+          },
+        
+    ]
     };
     console.log(countries.topten,countries.topten.map(el=>{return {"x":el.country,"y":el.total_cases}}));
 
