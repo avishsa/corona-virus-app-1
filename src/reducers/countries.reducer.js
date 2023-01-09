@@ -17,6 +17,7 @@ export function countries(state = { items: [], status: stateStatus.init ,statusT
             }
             const {payload} = action;            
             return {
+                ...state,
                 items: payload.countries,
                 status: stateStatus.valid
             };
@@ -41,6 +42,7 @@ export function countries(state = { items: [], status: stateStatus.init ,statusT
             }
             const {payload} = action;            
             return {
+                ...state,
                 topten: payload.topten,
                 statusTop10: stateStatus.valid
             };

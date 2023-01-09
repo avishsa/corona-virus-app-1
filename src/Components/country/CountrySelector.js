@@ -15,10 +15,11 @@ export default function CountrySelector() {
     const dispatch = useDispatch();
     
     useEffect(() => {   
+      console.log("cscs");
         if(status===stateStatus.init)     
         dispatch(countryActions.getAll());        
     }, [dispatch, status]);
-    
+    if(status!==stateStatus.valid) return <div></div>
 
     
 
@@ -28,7 +29,7 @@ export default function CountrySelector() {
      Select country
     </button>
     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      {countries.items && countries.items.map(i=>{
+      {countries.items.map(i=>{
       return <CountryItem key={i.id}{...i}/>})}
     </div>
   </div>);

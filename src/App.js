@@ -6,12 +6,12 @@ import ReportGraph from './Components/report/ReportGraph';
 
 function App() {
   return (
-    <div className="App">
-      <div className="">
+    <div className="App d-flex flex-row">
+      <div className="w-50">
       <CountrySelector/>
       <ReportGraph/>
       </div>
-      <div>
+      <div className="w-50">
         <CountryGraph/>
       </div>
     </div>
