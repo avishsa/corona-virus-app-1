@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   Chart as ChartJS,
   TimeScale,
@@ -11,7 +12,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-
+import "chartjs-adapter-luxon";
 
 ChartJS.register(
   TimeScale,
@@ -34,44 +35,26 @@ export const options = {
       display: true,
       text: 'Country last days',
     },
-    scales: {
-      yAxes: {
-        title: {display: true, text:"new cases"}
-      },
-      xAxes: {
-          title: "time",
-          type: 'time',
-          gridLines: {
-              lineWidth: 2
-          },
-          time: {
-              unit: "day",
-              unitStepSize: 1000,
-              displayFormats: {
-                  millisecond: 'MMM DD',
-                  second: 'MMM DD',
-                  minute: 'MMM DD',
-                  hour: 'MMM DD',
-                  day: 'MMM DD',
-                  week: 'MMM DD',
-                  month: 'MMM DD',
-                  quarter: 'MMM DD',
-                  year: 'MMM DD',
-              }
-          }
-      }
+    
+  },scales: {
+    y: {
+      title: {display: true, text: "new cases"}
+    },
+    x: {
+      title: {display: true, text: "dates"},
+      type:"time",
+      time: {        unit: 'day'   }
+     
+    }
   }
-  },
   
 };
 
 
 
 
-export function LineNewCases(props) {
-  console.log(props);
-  const {items,query} = props;
-
+export function LineNewCases({items,query} ) {  
+  
 const data = {
   
   datasets:[{

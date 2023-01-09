@@ -6,8 +6,7 @@ import { reportActions } from "../../actions/reportActions";
 export default function CountryItem({location,id}) {   
     const dispatch = useDispatch();   
     const selectCountry = (e)=>{
-      e.preventDefault();
-      e.stopPropagation()
+      e.preventDefault();      
         dispatch(reportActions.searchReports({country:id,duration:10}));
     }    
     return (
