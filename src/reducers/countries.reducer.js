@@ -1,6 +1,6 @@
 import { countryConstants } from "../constants/country.constants";
 import { stateStatus } from "../constants";
-export function countries(state = { items: [], status: stateStatus.init }, action) {
+export function countries(state = { items: [], status: stateStatus.init ,statusTop10:stateStatus.init}, action) {
     switch (action.type) {
         case countryConstants.GETALL_REQUEST:
             return {
@@ -29,25 +29,25 @@ export function countries(state = { items: [], status: stateStatus.init }, actio
        case countryConstants.GET_TOP_TEN_REQUEST:
             return {
             ...state,
-            status:stateStatus.init
+            statusTop10:stateStatus.init
          };
          case countryConstants.GET_TOP_TEN_SUCCESS:
             if (!action.payload ||!action.payload.topten || action.payload.topten.length === 0){ 
                 
                 return {
                 ...state,
-                status: stateStatus.invalid
+                statusTop10: stateStatus.invalid
             };
             }
             const {payload} = action;            
             return {
-                topten: payload.countries,
-                status: stateStatus.valid
+                topten: payload.topten,
+                statusTop10: stateStatus.valid
             };
         case countryConstants.GET_TOP_TEN_FAILURE:
                 return {
                    ...state,
-                   status:stateStatus.invalid
+                   statusTop10:stateStatus.invalid
                 };
                default: return state;
     }

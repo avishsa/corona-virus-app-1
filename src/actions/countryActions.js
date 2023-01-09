@@ -41,6 +41,6 @@ function getTopTen() {
             );
     };
     function request() { return { type: countryConstants.GET_TOP_TEN_REQUEST } }
-    function success(countries) { return { type: countryConstants.GET_TOP_TEN_SUCCESS, payload: {countries} } }
+    function success(topten) { return { type: countryConstants.GET_TOP_TEN_SUCCESS, payload: {topten} } }
     function failure(error) { return { type: countryConstants.GET_TOP_TEN_FAILURE, error } }
 }

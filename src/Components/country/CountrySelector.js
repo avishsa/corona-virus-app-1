@@ -28,7 +28,7 @@ export default function CountrySelector() {
      Select country
     </button>
     <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      {countries.items.map(i=>{
+      {countries.items && countries.items.map(i=>{
       return <CountryItem key={i.id}{...i}/>})}
     </div>
   </div>);
