@@ -9,4 +9,4 @@ const basicAxios =  axios.create({
 
 
 export const getCountries = () => API('GET','/countries',null,basicAxios);
-
+export const getTopTen = () =>API('GET','/top10',null,basicAxios)

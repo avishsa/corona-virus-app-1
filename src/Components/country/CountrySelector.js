@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { countryActions } from "../actions/countryActions";
-import { stateStatus } from '../constants';
-import CountryItem from './country/CountryItem';
+import { countryActions } from "../../actions/countryActions";
+import { stateStatus } from '../../constants';
+import CountryItem from './CountryItem';
 
 
-export default function CountryGraph() {   
+export default function CountrySelector() {   
     
     const countries = useSelector(state => { 
         
@@ -18,7 +18,7 @@ export default function CountryGraph() {
         if(status===stateStatus.init)     
         dispatch(countryActions.getAll());        
     }, [dispatch, status]);
-    console.log(countries.items);
+    
 
     
 

@@ -1,4 +1,4 @@
-import { getCountries } from "../api/countries";
+import { getCountries,getTopTen } from "../api/countries";
 
 
 const _getAll = () => {
@@ -9,11 +9,18 @@ const _getAll = () => {
         })
         .catch(err => {  return { err: err } });
 }
-
+const _getTopTen = ()=>{
+    return getTopTen()
+    .then(({ data }) => {           
+       
+        return { data: data };
+    })
+    .catch(err => {  return { err: err } });
+}
 
 export const countryService = {
 
     _getAll,
-  
+    _getTopTen,
 
 };

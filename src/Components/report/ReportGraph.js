@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { stateStatus } from '../constants';
-import { LineNewCases } from './report/graph/LineNewCases'; 
+import { stateStatus } from '../../constants';
+import { LineNewCases } from './graph/LineNewCases'; 
 
 
 
@@ -15,17 +15,10 @@ export default function ReportGraph() {
         );    
     const status = useSelector(state => { return state.reports.status });
     
-    
-   
-
-    
-
-    console.log(reports.items);
     return status===stateStatus.valid ?(<div >
         <LineNewCases {...reports} />
     
-      {/* {reports.items.map(i=>{
-      return <div> </div>})} */}
+     
     
   </div>):<div></div>;
 

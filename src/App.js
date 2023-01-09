@@ -1,13 +1,19 @@
 
 import './App.css';
-import CountryGraph from './Components/CountryGraph';
-import ReportGraph from './Components/ReportGraph';
+import CountrySelector from './Components/country/CountrySelector';
+import CountryGraph from './Components/country/CountryGraph';
+import ReportGraph from './Components/report/ReportGraph';
 
 function App() {
   return (
     <div className="App">
-      <CountryGraph/>
+      <div className="">
+      <CountrySelector/>
       <ReportGraph/>
+      </div>
+      <div>
+        <CountryGraph/>
+      </div>
     </div>
   );
 }
