@@ -60,8 +60,9 @@ export default function CountryGraph() {
     }, [dispatch, status]);
     
     if(countries.statusTop10!==stateStatus.valid)   {     return <div></div>;  }
+    console.log(  countries.topten);
     const data = { 
-        labels:  countries.topten.map(el=>el.country),
+        labels:  countries.topten.map(el=>el.location),
         datasets: [
         {
           label: 'total cases',

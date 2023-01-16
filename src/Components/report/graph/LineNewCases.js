@@ -54,13 +54,13 @@ export const options = {
 
 
 export function LineNewCases({items,query} ) {  
-  
+  let data_items=items.map(el=>{return {"x":new Date(el.ReportDate),"y":el.New_cases}});
   
 const data = {
   
   datasets:[{
     label: `${query?.location??"country"}`,
-    data: items.map(el=>{return {"x":el.date,"y":el.new_cases}}),
+    data: data_items,
     borderColor: 'rgb(255, 99, 132)',
     backgroundColor: 'rgba(255, 99, 132, 0.5)',
   }]

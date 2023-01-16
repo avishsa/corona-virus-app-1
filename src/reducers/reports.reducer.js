@@ -17,7 +17,7 @@ export function reports(state = { items: [],  status: stateStatus.init,query: nu
             }
             const {payload} = action;            
             return {
-                ...state,
+                ...state,   
                 items: payload.reports,
                 status: stateStatus.valid
             };
