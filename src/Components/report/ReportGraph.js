@@ -9,17 +9,16 @@ import { LineNewCases } from './graph/LineNewCases';
 
 export default function ReportGraph() {   
     
-    const reports = useSelector(state => { 
-        
-        return state.reports }
-        );    
-    const status = useSelector(state => { return state.reports.status });
-    if(status!==stateStatus.valid) return <div></div>;
-    return(<div >
-        <LineNewCases {...reports} />
+    const reports = useSelector(state =>state.reports );   
+    switch(reports.status){
+        case stateStatus.pending: return <div>Loading</div>;     
+        case stateStatus.valid: return <div><LineNewCases {...reports} /></div>;
+        case stateStatus.invalid: if(reports.query) return <div>{`no data for 10 last days for ${reports.query.location}`}</div>;
+        case stateStatus.init: 
+        default: return <div></div>;
+    }
     
-     
     
-  </div>);
+  
 
 }

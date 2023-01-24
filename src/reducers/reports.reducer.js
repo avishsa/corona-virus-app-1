@@ -3,6 +3,7 @@ import { stateStatus } from "../constants";
 export function reports(state = { items: [],  status: stateStatus.init,query: null }, action) {
     switch (action.type) {
         case reportConstants.SEARCH_REPORTS_REQUEST:
+            if(action.payload===null) return {...state};
             return {
                 ...state,
                 status: stateStatus.pending,
