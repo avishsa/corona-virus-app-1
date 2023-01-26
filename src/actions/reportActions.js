@@ -5,8 +5,8 @@ export const reportActions = {
     searchReports,  
 };
 function searchReports(criteria) {
-    return dispatch => {
-        dispatch(request(criteria));
+    return dispatch => {        
+        dispatch(request(criteria));        
         reportService._searchReports(criteria)
             .then(
                 res => {                    

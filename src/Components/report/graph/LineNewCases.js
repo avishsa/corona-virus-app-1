@@ -20,9 +20,9 @@ ChartJS.register(
   LinearScale,
   PointElement,
   LineElement,
-  Title,
-  Tooltip,
-  Legend
+  //Title,
+  //Tooltip,
+  //Legend
 );
 
 export const options = {
@@ -43,7 +43,7 @@ export const options = {
     x: {
       title: {display: true, text: "dates"},
       type:"time",
-      time: {        unit: 'day'   }
+      time: { unit: 'day'}
      
     }
   }

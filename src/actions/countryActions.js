@@ -3,14 +3,11 @@ import { countryService } from "../services/country.services";
 import { countryConstants } from "../constants/country.constants";
 export const countryActions = {
     getAll,
-    getTopTen,
-    //getAllPending,
-
-
+    getTopTen
 };
 function getAll() {
     return dispatch => {
-        dispatch(request());
+        dispatch(request());        
         countryService._getAll()
             .then(
                 res => {                    

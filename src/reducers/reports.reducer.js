@@ -2,14 +2,14 @@ import { reportConstants } from "../constants/report.constants";
 import { stateStatus } from "../constants";
 export function reports(state = { items: [],  status: stateStatus.init,query: null }, action) {
     switch (action.type) {
-        case reportConstants.SEARCH_REPORTS_REQUEST:
-            if(action.payload===null) return {...state};
+        case reportConstants.SEARCH_REPORTS_REQUEST:            
+            if(!action.payload) return {...state};
             return {
                 ...state,
                 status: stateStatus.pending,
                 query :action.payload
             };
-        case reportConstants.SEARCH_REPORTS_SUCCESS: {            
+        case reportConstants.SEARCH_REPORTS_SUCCESS: {              
             if (!action.payload ||!action.payload.reports || action.payload.reports.length === 0){    
             return {
                 ...state,
@@ -23,7 +23,7 @@ export function reports(state = { items: [],  status: stateStatus.init,query: nu
                 status: stateStatus.valid
             };
         }
-        case reportConstants.SEARCH_REPORTS_FAILURE:
+        case reportConstants.SEARCH_REPORTS_FAILURE:            
             return {
             ...state,
                 status:stateStatus.invalid

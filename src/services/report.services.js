@@ -1,10 +1,9 @@
 import { searchReports } from "../api/reports";
 
 
-const _searchReports = (criteria) => {
+const _searchReports = (criteria) => {    
     return searchReports(criteria)
-        .then(({ data }) => {           
-           
+        .then(({ data }) => {         
             return { data: data };
         })
         .catch(err => {  return { err: err } });
